@@ -20,10 +20,10 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url)
 
     // OPTIONS
-    nuxt.options.publicRuntimeConfig.pocketbase = defu(nuxt.options.publicRuntimeConfig.pocketbase, {
+    nuxt.options.runtimeConfig.pocketbase = {
       url: options.url,
       loginRoute: options.loginRoute,
-    })
+    }
 
     // PLUGIN
     addPlugin(resolver.resolve('./runtime/plugin'))
