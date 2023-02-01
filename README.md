@@ -6,7 +6,7 @@ Find and replace all on all files (CMD+SHIFT+F):
 - Package name: my-module
 - Description: My new Nuxt module
 -->
-
+# WIP DON'T USE IT
 # My Module
 
 [![npm version][npm-version-src]][npm-version-href]

@@ -1,4 +1,11 @@
-import { defineNuxtPlugin } from '#app'
+import {
+  defineNuxtPlugin,
+  useRuntimeConfig,
+  useCookie,
+  addRouteMiddleware,
+  navigateTo
+} from '#app'
+
 import PocketBase from "pocketbase";
 
 type Cookie = {
@@ -6,7 +13,7 @@ type Cookie = {
   model: any;
 };
 
-export default defineNuxtPlugin(async (nuxtApp) => {
+export default defineNuxtPlugin(async () => {
   const config = useRuntimeConfig();
   const pb = new PocketBase(config.pocketbase.url);
 
@@ -47,10 +54,3 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     provide: { pb },
   };
 });
-
-// crear un middleware aqui que verifique si el
-// usuario esta o no logeado, si no esta logeado
-// que lo envie a una url de login definida por
-// el usuario.
-
-// tambien verificar si el authStore

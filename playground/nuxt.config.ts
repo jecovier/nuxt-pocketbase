@@ -1,4 +1,7 @@
 export default defineNuxtConfig({
   modules: ['../src/module'],
-  myModule: {}
+  nuxtPocketbase: {
+    url: '',
+    loginRoute: '/auth/login'
+  }
 })

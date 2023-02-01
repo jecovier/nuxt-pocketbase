@@ -1,3 +1,4 @@
+import { defu } from 'defu'
 import { defineNuxtModule, addPlugin, addImports, createResolver } from '@nuxt/kit'
 
 // Module options TypeScript inteface definition
@@ -20,10 +21,10 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url)
 
     // OPTIONS
-    nuxt.options.runtimeConfig.pocketbase = {
+    nuxt.options.runtimeConfig.public.pocketbase = defu(nuxt.options.runtimeConfig.public.pocketbase, {
       url: options.url,
       loginRoute: options.loginRoute,
-    }
+    })
 
     // PLUGIN
     addPlugin(resolver.resolve('./runtime/plugin'))
@@ -31,7 +32,7 @@ export default defineNuxtModule<ModuleOptions>({
     // COMPOSABLE
     const composable = resolver.resolve('./runtime/composable')
     addImports([
-      { from: composable, name: 'usePocketbase' }
+      { from: composable, name: 'usePocketbase', as: 'usePocketbase' }
     ])
   }
 })

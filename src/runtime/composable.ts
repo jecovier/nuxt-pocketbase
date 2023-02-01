@@ -1,3 +1,5 @@
+import { useAsyncData } from "#app";
+
 /**
  * Types
  * ---------------------------------
@@ -19,7 +21,7 @@ export interface RegisterType {
  * ----------------------------------
  */
 
-export default function () {
+export const usePocketbase = () => {
   /**
    * register a new user
    *
@@ -93,4 +95,4 @@ export default function () {
     logoutUser,
     list,
   };
-}
+};
