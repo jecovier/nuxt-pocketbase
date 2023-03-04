@@ -33,7 +33,7 @@ export interface resetPasswordType {
 
 let defaultCollection = "users";
 
-export const usePocketbase = () => {
+export const useAuthPocketbase = () => {
   /**
    * set the collection to be used for authentication, 
    * the default value is "users"
