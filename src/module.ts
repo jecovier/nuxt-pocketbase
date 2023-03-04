@@ -33,9 +33,9 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin(resolver.resolve('./runtime/plugin'))
 
     // COMPOSABLE
-    const composable = resolver.resolve('./runtime/composable')
     addImports([
-      { from: composable, name: 'usePocketbase', as: 'usePocketbase' }
+      { from: resolver.resolve('./runtime/usePocketbase'), name: 'usePocketbase', as: 'usePocketbase' },
+      { from: resolver.resolve('./runtime/useAuthPocketbase'), name: 'useAuthPocketbase', as: 'useAuthPocketbase' },
     ])
   }
 })
