@@ -135,7 +135,7 @@ export const useAuthPocketbase = () => {
       return structuredClone(userData);
     });
     return data;
-  }
+  };
 
   return {
     setDefaultCollection,
