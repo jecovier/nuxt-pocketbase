@@ -1,6 +1,6 @@
 {
   "name": "nuxt-pocketbase",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Connect to pocketbase",
   "license": "MIT",
   "type": "module",

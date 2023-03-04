@@ -88,11 +88,9 @@ export const useAuthPocketbase = () => {
    * @returns object
    */
   const logoutUser = async () => {
-    const { data } = await useAsyncData(async (nuxtApp: any) => {
-      const userData = await nuxtApp.$pb.authStore.clear();
-      return structuredClone(userData);
+    return await useAsyncData(async (nuxtApp: any) => {
+      return await nuxtApp.$pb.authStore.clear();
     });
-    return data;
   };
 
   /**
@@ -107,13 +105,11 @@ export const useAuthPocketbase = () => {
     credential: PasswordResetType,
     collection: string = defaultCollection
   ) => {
-    const { data } = await useAsyncData(async (nuxtApp: any) => {
-      const userData = await nuxtApp.$pb
+    return await useAsyncData(async (nuxtApp: any) => {
+      return await nuxtApp.$pb
         .collection(collection)
         .requestPasswordReset(credential.email);
-      return structuredClone(userData);
     });
-    return data;
   };
 
   /**
@@ -128,13 +124,11 @@ export const useAuthPocketbase = () => {
     resetPassword: resetPasswordType,
     collection: string = defaultCollection
   ) => {
-    const { data } = await useAsyncData(async (nuxtApp: any) => {
-      const userData = await nuxtApp.$pb
+    return await useAsyncData(async (nuxtApp: any) => {
+      return await nuxtApp.$pb
         .collection(collection)
         .confirmPasswordReset(resetPassword.token, resetPassword.password, resetPassword.confirmPassword);
-      return structuredClone(userData);
     });
-    return data;
   };
 
   return {
