@@ -55,11 +55,11 @@ export const useAuthPocketbase = () => {
     user: RegisterType,
     collection: string = defaultCollection
   ) => {
-    const { data } = await useAsyncData(async (nuxtApp: any) => {
-      const userData = await nuxtApp.$pb.collection(collection).create(user);
-      return structuredClone(userData);
+    return await useAsyncData(async (nuxtApp: any) => {
+      return await nuxtApp.$pb
+        .collection(collection)
+        .create(user);
     });
-    return data;
   };
 
   /**
@@ -73,13 +73,11 @@ export const useAuthPocketbase = () => {
     credential: CredentialType,
     collection: string = defaultCollection
   ) => {
-    const { data } = await useAsyncData(async (nuxtApp: any) => {
-      const userData = await nuxtApp.$pb
+    return await useAsyncData(async (nuxtApp: any) => {
+      return await nuxtApp.$pb
         .collection(collection)
         .authWithPassword(credential.username, credential.password);
-      return structuredClone(userData);
     });
-    return data;
   };
 
   /**
