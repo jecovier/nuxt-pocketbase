@@ -1,6 +1,39 @@
 import { defu } from 'defu'
 import { defineNuxtModule, addPlugin, addImports, createResolver } from '@nuxt/kit'
 
+
+/**
+ * Types
+ * ---------------------------------
+ */
+export interface CredentialType {
+  username: string;
+  password: string;
+}
+
+export interface RegisterType {
+  username: string;
+  password: string;
+  passwordConfirm: string;
+  email: string;
+}
+
+export interface PasswordResetType {
+  email: string;
+}
+
+export interface resetPasswordType {
+  token:string,
+  password:string,
+  confirmPassword:string,
+}
+
+export interface ClientResponseErrorType {
+  code: number,
+  message:string,
+  data: unknown
+}
+
 // Module options TypeScript inteface definition
 export interface ModuleOptions {
   url: string

@@ -1,30 +1,5 @@
 import { useAsyncData } from "#app";
-
-/**
- * Types
- * ---------------------------------
- */
-export interface CredentialType {
-  username: string;
-  password: string;
-}
-
-export interface RegisterType {
-  username: string;
-  password: string;
-  passwordConfirm: string;
-  email: string;
-}
-
-export interface PasswordResetType {
-  email: string;
-}
-
-export interface resetPasswordType {
-  token:string,
-  password:string,
-  confirmPassword:string,
-}
+import { RegisterType, CredentialType, PasswordResetType, resetPasswordType } from "../module"
 
 /**
  * Actions
